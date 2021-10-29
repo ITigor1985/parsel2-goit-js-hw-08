@@ -5,10 +5,8 @@
   "source": "src/index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "start": "parcel --open ",
-    "build": "parcel build --public-url /ITigor1985/parsel2-goit-js-hw-08/",
-    "deploy": "gh-pages -d dist",
-    "predeploy": "npm run build"
+    "start": "parcel src/*.html --open ",
+    "build": "parcel build src/*.html --public-url /parsel2-goit-js-hw-08/"
   },
   "repository": {
     "type": "git",
@@ -30,5 +28,5 @@
   "bugs": {
     "url": "https://github.com/ITigor1985/parsel2-goit-js-hw-08/issues"
   },
-  "homepage": "https://itigor1985.github.io/parsel2-goit-js-hw-08/src/index.html"
+  "homepage": "https://itigor1985.github.io/parsel2-goit-js-hw-08"
 }
