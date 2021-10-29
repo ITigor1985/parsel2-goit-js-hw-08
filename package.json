@@ -17,6 +17,7 @@
     "parcel": "^2.0.0"
   },
   "dependencies": {
+    "@jamesives/github-pages-deploy-action": "^4.1.5",
     "@vimeo/player": "^2.16.1",
     "lodash.throttle": "^4.1.1",
     "simplelightbox": "^2.9.0"
