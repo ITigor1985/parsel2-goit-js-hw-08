@@ -6,7 +6,7 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "start": "parcel --open ",
-    "build": "parcel build",
+    "build": "parcel build --public-url /ITigor1985/parsel2-goit-js-hw-08/",
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build"
   },
