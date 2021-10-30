@@ -13,6 +13,12 @@
     "type": "git",
     "url": "git+https://github.com/ITigor1985/parsel2-goit-js-hw-08.git"
   },
+  "target": {
+    "browser": {
+      "main": " index.html ",
+      "deleteBeforeBuild": true
+    }
+  },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.0",
     "parcel": "^2.0.0"
