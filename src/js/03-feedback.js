@@ -1,30 +1,37 @@
 import throttle from 'lodash.throttle';
 
-const formEl = document.querySelector('.feedback-form');
+const LOC_STOR_KEY = 'feedback-form-state';
 
-const registrationData = {};
+const form = document.querySelector('.feedback-form');
+const input = document.querySelector('.feedback-form input');
+const textarea = document.querySelector('.feedback-form textarea');
 
-formEl.addEventListener('submit', handleSubmit);
-formEl.addEventListener('input', inputeChange);
+const formData = {};
+getSavedFormData();
 
-function inputeChange(event) {
-  let ls = localStorage.getItem('key');
-  console.log(ls.valueOf);
+textarea.addEventListener('input', throttle(changeInput, 500));
+input.addEventListener('input', throttle(changeInput, 500));
+form.addEventListener('submit', formSubmit);
+
+function changeInput(event) {
+  formData[event.target.name] = event.target.value;
+  localStorage.setItem(LOC_STOR_KEY, JSON.stringify(formData));
 }
 
-function handleSubmit(event) {
-  event.preventDefault();
-  //console.log(event.currentTarget);
-  const {
-    elements: { email, message },
-  } = event.currentTarget;
+function getSavedFormData() {
+  const savedFormData = JSON.parse(localStorage.getItem(LOC_STOR_KEY));
 
-  if (email.value === '' || message.value === '') {
-    return alert('все поля должны быть заполнены');
+  if (savedFormData) {
+    textarea.value = savedFormData.message;
+    formData.message = savedFormData.message;
+    input.value = savedFormData.email;
+    formData.email = savedFormData.email;
   }
-  registrationData.email = email.value;
-  registrationData.message = message.value;
+}
 
-  //console.log(registrationData);
+function formSubmit(event) {
+  event.preventDefault();
+  console.log(formData);
   event.currentTarget.reset();
+  localStorage.removeItem(LOC_STOR_KEY);
 }
