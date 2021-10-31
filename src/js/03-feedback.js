@@ -5,10 +5,16 @@ const formEl = document.querySelector('.feedback-form');
 const registrationData = {};
 
 formEl.addEventListener('submit', handleSubmit);
+formEl.addEventListener('input', inputeChange);
+
+function inputeChange(event) {
+  let ls = localStorage.getItem('key');
+  console.log(ls.valueOf);
+}
 
 function handleSubmit(event) {
   event.preventDefault();
-  console.log(event.currentTarget);
+  //console.log(event.currentTarget);
   const {
     elements: { email, message },
   } = event.currentTarget;
@@ -19,6 +25,6 @@ function handleSubmit(event) {
   registrationData.email = email.value;
   registrationData.message = message.value;
 
-  console.log(registrationData);
+  //console.log(registrationData);
   event.currentTarget.reset();
 }
